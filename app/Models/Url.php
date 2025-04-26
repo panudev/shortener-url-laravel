@@ -21,6 +21,7 @@ class Url extends Model
         'original_url',
         'shortener_url',
         'clicks',
+        'qrcode',
     ];
 
     protected static function boot()
