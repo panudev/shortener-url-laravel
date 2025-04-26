@@ -1,6 +1,7 @@
 import { type SharedData } from '@/types';
 import { Head, Link, usePage, useForm } from '@inertiajs/react';
 import { Fragment, useEffect, useState } from 'react';
+import { route } from 'ziggy-js';
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;
