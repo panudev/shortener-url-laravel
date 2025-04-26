@@ -14,6 +14,7 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
+    base: process.env.APP_ENV === 'production' ? '/build/' : '/',
     esbuild: {
         jsx: 'automatic',
     },
