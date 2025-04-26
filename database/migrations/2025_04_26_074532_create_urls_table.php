@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->text('original_url');
             $table->string('shortener_url')->unique();
+            $table->string('qrcode')->nullable();
             $table->unsignedBigInteger('clicks')->default(0);
             $table->timestamps();
 
