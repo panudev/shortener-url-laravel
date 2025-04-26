@@ -1,4 +1,4 @@
-FROM php:8.2-cli@sha256:<digest>
+FROM php:8.2-cli
 
 WORKDIR /var/www
 
