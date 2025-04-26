@@ -1,6 +1,6 @@
 import { type SharedData } from '@/types';
 import { Head, Link, usePage, useForm } from '@inertiajs/react';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;
@@ -8,6 +8,13 @@ export default function Welcome() {
         url: '',
     });
     const [mode, setMode] = useState<'shorten' | 'qrcode'>('shorten');
+
+    useEffect(() => {
+        if (auth.user) {
+            window.location.href = route('dashboard');
+        }
+    })
+
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -31,7 +38,7 @@ export default function Welcome() {
                                 href={route('dashboard')}
                                 className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                             >
-                                Dashboard
+                                Link Shortener
                             </Link>
                         ) : (
                             <>
