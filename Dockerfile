@@ -18,10 +18,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     npm install && \
     npm run build
 
-# COPY bash entrypoint script
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
 EXPOSE 8000
 
-CMD ["sh", "/usr/local/bin/entrypoint.sh"]
+CMD php -S 0.0.0.0:${PORT:-8000} -t public
