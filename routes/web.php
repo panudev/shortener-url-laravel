@@ -5,12 +5,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome');
-// })->name('home');
 Route::get('/', function () {
-    return 'Laravel is working!';
-});
+    return Inertia::render('Welcome');
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard', function () {
