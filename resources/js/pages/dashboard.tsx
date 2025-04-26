@@ -6,7 +6,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Link Shortener',
         href: '/dashboard',
-    },
+    }
 ];
 
 type UrlsForm = {

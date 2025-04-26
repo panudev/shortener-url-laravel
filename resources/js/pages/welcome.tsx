@@ -13,7 +13,9 @@ export default function Welcome() {
         if (auth.user) {
             window.location.href = route('dashboard');
         }
-    })
+    }, [auth.user]);
+
+    if (auth.user) return null;
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,6 +25,7 @@ export default function Welcome() {
             return;
         }
     };
+    
 
     return (
         <Fragment>

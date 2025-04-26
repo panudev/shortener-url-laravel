@@ -31,7 +31,7 @@ class UrlController extends Controller
 
         if (!$urlRecord) {
             $shortCode = Str::random(6);
-            $shortUrl = url('/') . '/' . $shortCode;
+            $shortUrl = url('/s/' . $shortCode);
 
             $urlRecord = Url::create([
                 'id' => (string) Str::uuid(),
@@ -48,7 +48,7 @@ class UrlController extends Controller
         if ($validated['want_qr']) {
             $shortCode = basename($shortUrl);
             $qrImageName = 'qrcodes/' . Auth::user()->id . '/' . $shortCode . '.png';
-            $qrContent = $shortCode;
+            $qrContent = $shortUrl;
             $qr = QrCode::format('png')->size(300)->generate($qrContent);
             Storage::disk('public')->put($qrImageName, $qr);
             $urlRecord->update(['qrcode' => $qrImageName]);
@@ -61,5 +61,28 @@ class UrlController extends Controller
                 'qr_url' => $qrUrl,
             ],
         ]);
+    }
+
+    public function userLinks()
+    {
+        $links = Url::where('user_id', Auth::id())
+            ->orderByDesc('created_at')
+            ->paginate(10, ['id', 'original_url', 'shortener_url', 'qrcode', 'clicks', 'created_at']);
+
+        return Inertia::render('userlinks', [
+            'links' => $links,
+        ]);
+    }
+
+    public function redirectShort($shortCode)
+    {
+        $url = Url::where('shortener_url', 'like', '%/' . $shortCode)->first();
+
+        if ($url) {
+            $url->increment('clicks');
+            return redirect()->away($url->original_url);
+        } else {
+            abort(404, 'Short link not found');
+        }
     }
 }
