@@ -11,7 +11,7 @@ export default function Welcome() {
     const [mode, setMode] = useState<'shorten' | 'qrcode'>('shorten');
 
     useEffect(() => {
-        if (auth.user) {
+        if (typeof window.Ziggy !== 'undefined' && window.Ziggy.routes && auth.user) {
             window.location.href = route('dashboard');
         }
     }, [auth.user]);

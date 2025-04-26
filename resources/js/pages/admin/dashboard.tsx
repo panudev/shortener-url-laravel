@@ -1,5 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import AdminSidebar from '@/components/admin/admin-sidebar';
+import { route } from 'ziggy-js';
 
 type User = {
     id: string;
