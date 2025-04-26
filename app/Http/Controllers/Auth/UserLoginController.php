@@ -29,7 +29,9 @@ class UserLoginController extends Controller
             'password' => $request->password
         ];
 
-        if (!Auth::attempt($credentials, $request->has('remember'))) {
+        $remember = $request->boolean('remember');
+
+        if (!Auth::attempt($credentials, $remember)) {
             return back()->withErrors([
                 'login' => 'Username or Email is incorrect',
             ])->onlyInput('login');

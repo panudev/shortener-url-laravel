@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
     use HasFactory;
 
@@ -24,6 +24,9 @@ class Admin extends Model
         'created_by',
         'updated_by',
     ];
+
+    protected $guarded = [];
+    protected $hidden = ['password'];
 
     protected static function boot()
     {
