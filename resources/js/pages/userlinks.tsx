@@ -78,7 +78,7 @@ export default function UserLinks() {
                                                         if (link.qrcode) {
                                                             setQrModal({
                                                                 open: true,
-                                                                img: link.qrcode.startsWith('http') ? link.qrcode : `/storage/${link.qrcode}`,
+                                                                img: link.qrcode.startsWith('http') ? '/storage/qrcodes/QR-Code-Default.png' : `/storage/${link.qrcode}`,
                                                             });
                                                         }
                                                     }}

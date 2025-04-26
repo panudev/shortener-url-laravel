@@ -144,7 +144,7 @@ export default function Welcome() {
                             </div>
                             {mode === 'qrcode' && (
                                 <div className="hidden flex-1 items-center justify-center lg:flex">
-                                    <img src="/your-qr-mockup.png" alt="QR Code Example" className="max-w-xs rounded-lg" />
+                                    <img src="/storage/qrcodes/QR-Code-Default.png" alt="QR Code Example" className="max-w-xs rounded-lg" />
                                 </div>
                             )}
                         </form>
