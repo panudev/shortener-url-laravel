@@ -6,7 +6,7 @@ use App\Http\Controllers\UrlController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return Inertia::render('welcome');
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
