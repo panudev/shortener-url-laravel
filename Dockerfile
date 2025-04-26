@@ -34,7 +34,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     npm install && \
     npm run build
 
-# Set permissions
+# Ensure storage and bootstrap/cache exist
+RUN mkdir -p storage bootstrap/cache
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 # Copy nginx config
