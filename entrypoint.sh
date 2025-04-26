@@ -1,6 +1,7 @@
 #!/bin/sh
 
+# ถ้า PORT ไม่มีให้ใช้ 8000
 PORT=${PORT:-8000}
-PORT=$(expr $PORT + 0) # บังคับ cast เป็น integer
 
-php artisan serve --host=0.0.0.0 --port=$PORT
+echo "Starting PHP built-in server on port $PORT..."
+php -S 0.0.0.0:$PORT -t public
