@@ -1,4 +1,4 @@
-import{j as a,r as d}from"./app-BHS7vOzM.js";import{a as i,c as l,P as s}from"./button-Df7GBQKD.js";function p({message:e,className:r="",...t}){return e?a.jsx("p",{...t,className:i("text-sm text-red-600 dark:text-red-400",r),children:e}):null}/**
+import{j as a,r as d}from"./app-CQYEfR7j.js";import{a as i,c as l,P as s}from"./button-DjbYJj5o.js";function p({message:e,className:r="",...t}){return e?a.jsx("p",{...t,className:i("text-sm text-red-600 dark:text-red-400",r),children:e}):null}/**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.

@@ -41,7 +41,7 @@
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
-        <div id="app" data-page="{{ json_encode($page) }}">
+        <div id="app" data-page="{{ json_encode($page) }}" data-ziggy="{{ json_encode(app('ziggy')) }}">
             @inertia
         </div>
     </body>
