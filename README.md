@@ -70,7 +70,7 @@ http://localhost:8000
 
 Insert your system architecture diagram here:
 
-![System Architecture](../shortener-app/storage/app/public/Shortener.png)
+![System Architecture](./Shortener.png)
 
 ## Project Structure
 
