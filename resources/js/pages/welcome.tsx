@@ -9,7 +9,7 @@ export default function Welcome() {
         url: '',
     });
     const [mode, setMode] = useState<'shorten' | 'qrcode'>('shorten');
-
+    console.log(window.Ziggy)
     useEffect(() => {
         if (typeof window.Ziggy !== 'undefined' && window.Ziggy.routes && auth.user) {
             window.location.href = route('dashboard');
